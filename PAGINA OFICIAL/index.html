@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LARØMA ESSENZÉ | Perfumes & Accesorios</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="announcement">
+    ENVÍOS A TODO EL PAÍSSS
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <div class="header-inner">
+
+      <button class="icon-btn mobile-menu-btn" id="menuBtn" type="button" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a class="logo" href="#inicio">
+        LARØMA ESSENZÉ<span>.</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos" data-category-link="perfumes">Perfumes</a>
+        <a href="#productos" data-category-link="gorras">Gorras</a>
+        <a href="#productos" data-category-link="accesorios">Accesorios</a>
+        <a href="#productos" data-category-link="ofertas">Ofertas</a>
+      </nav>
+
+      <div class="header-actions">
+
+        <button class="icon-btn" id="searchBtn" type="button" aria-label="Buscar">
+          ⌕
+        </button>
+
+        <button class="icon-btn cart-button" id="cartBtn" type="button" aria-label="Abrir carrito">
+          🛒
+          <b id="cartCount">0</b>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- BUSCADOR -->
+    <div class="search-panel" id="searchPanel">
+
+      <div class="search-wrap">
+
+        <div class="search-input-row">
+          <span>⌕</span>
+
+          <input id="searchInput" type="search" placeholder="Buscar perfumes, gorras, accesorios..." autocomplete="off">
+
+          <button id="closeSearch" type="button" aria-label="Cerrar búsqueda">×</button>
+        </div>
+
+        <div class="search-results" id="searchResults" aria-live="polite"></div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- MENÚ LATERAL -->
+  <aside class="side-menu" id="sideMenu">
+
+    <div class="side-menu-top">
+      <span>MENÚ</span>
+      <button id="closeMenu" type="button" aria-label="Cerrar menú">×</button>
+    </div>
+
+    <a href="#inicio">Inicio</a>
+
+    <a href="#productos" data-category-link="perfumes">
+      Perfumes
+    </a>
+
+    <a href="#productos" data-category-link="gorras">
+      Gorras
+    </a>
+
+    <a href="#productos" data-category-link="accesorios">
+      Accesorios
+    </a>
+
+    <a href="#productos" data-category-link="ofertas">
+      Ofertas
+    </a>
+
+    <a href="#contacto">
+      Contacto
+    </a>
+
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+
+      <div class="hero-glow"></div>
+
+      <div class="hero-content reveal">
+
+        <p class="eyebrow">
+          ESSENTIALS · 2026
+        </p>
+
+        <h1>
+          Descubrí<br>
+          <em>tu estilo.</em>
+        </h1>
+
+        <p class="hero-copy">
+          Perfumes, gorras y accesorios seleccionados
+          para destacar tu esencia todos los días.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a class="btn btn-gold" href="#productos" data-category-link="perfumes">
+            Ver perfumes
+            <span>→</span>
+          </a>
+
+          <a class="btn btn-outline" href="#productos" data-category-link="colección">
+            Ver colección
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-product">
+
+        <!-- TEXTO CURVO ANIMADO -->
+        <div class="laroma-arc">
+
+          <svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
+
+            <defs>
+              <path id="laromaArcPath" d="M 85,245 A 220,220 0 0 1 515,245" />
+            </defs>
+
+            <text>
+              <textPath href="#laromaArcPath" startOffset="50%" text-anchor="middle">
+                LARØMA ESSENZE
+              </textPath>
+            </text>
+
+          </svg>
+
+        </div>
+
+        <!-- CÍRCULO -->
+        <div class="hero-product reveal">
+
+          <div class="hero-ring">
+            <img src="c:\Users\danir\OneDrive\Documentos\Pagina\PAGINA OFICIAL\imagenes\logo.png" alt="">
+          </div>
+        </div>
+        <div class="floating-tag tag-one"></div>
+        <div class="floating-tag tag-two"></div>
+        <div class="scroll-note">
+          <span></span>
+        </div>
+
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="categories section">
+
+      <div class="section-heading reveal">
+
+        <div>
+
+          <p class="eyebrow">
+            EXPLORÁ
+          </p>
+
+          <h2>
+            Encontrá tu
+            <em>favorito.</em>
+          </h2>
+
+        </div>
+
+        <p>
+          Una selección pensada para quienes
+          cuidan cada detalle.
+        </p>
+
+      </div>
+
+      <div class="category-grid">
+
+        <article class="category-card category-perfume reveal" data-cat="perfumes">
+
+          <div class="category-number">
+            01
+          </div>
+
+          <div class="category-art perfume-art">
+            <img src="imagenes/perfumes.png" alt="Perfumes">
+          </div>
+
+          <div>
+
+            <p>FRAGANCIAS</p>
+
+            <h3>Perfumes</h3>
+
+            <button type="button" data-category-link="perfumes">
+              Explorar <span>→</span>
+            </button>
+
+          </div>
+
+        </article>
+
+        <article class="category-card category-cap reveal" data-cat="gorras">
+
+          <div class="category-number">
+            02
+          </div>
+
+          <div class="category-art cap-art">
+            <img src="imagenes/Gorra.png" alt="">
+          </div>
+
+          <div>
+
+            <p>HEADWEAR</p>
+
+            <h3>Gorras</h3>
+
+            <button type="button" data-category-link="gorras">
+              Explorar <span>→</span>
+            </button>
+
+          </div>
+
+        </article>
+
+        <article class="category-card category-accessory reveal" data-cat="accesorios">
+
+          <div class="category-number">
+            03
+          </div>
+
+          <div class="category-art accessory-art">
+            <img src="imagenes/accesorios (2).png" alt="">
+          </div>
+
+          <div>
+
+            <p>DETAILS</p>
+
+            <h3>Accesorios</h3>
+
+            <button type="button" data-category-link="accesorios">
+              Explorar <span>→</span>
+            </button>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="products section" id="productos">
+
+      <div class="section-heading reveal">
+
+        <div>
+
+          <p class="eyebrow">
+            SHOP
+          </p>
+
+          <h2>
+            Productos
+            <em>destacados.</em>
+          </h2>
+
+        </div>
+
+        <p>
+          Elegí tu próximo essential.
+        </p>
+
+      </div>
+
+      <!-- FILTROS -->
+      <div class="filters reveal">
+
+        <button class="filter active" data-filter="todos" type="button">
+          Todos
+        </button>
+
+        <button class="filter" data-filter="perfumes" type="button">
+          Perfumes
+        </button>
+
+        <button class="filter" data-filter="gorras" type="button">
+          Gorras
+        </button>
+
+        <button class="filter" data-filter="accesorios" type="button">
+          Accesorios
+        </button>
+
+        <button class="filter" data-filter="ofertas" type="button">
+          Ofertas
+        </button>
+
+        <button class="filter" data-filter="favoritos">
+          Favoritos
+        </button>
+      </div>
+
+      <!-- PRODUCTOS GENERADOS POR JS -->
+      <div class="product-grid" id="productGrid"></div>
+
+      <div class="empty-state" id="emptyState">
+        No encontramos productos que coincidan
+        con tu búsqueda.
+      </div>
+
+    </section>
+
+    <!-- OFERTAS -->
+    <section class="offer-banner section" id="ofertas">
+
+      <div class="offer-copy reveal">
+
+        <p class="eyebrow">
+          LIMITED DROP
+        </p>
+
+        <h2>
+          Ofertas de<br>
+          <em>la semana.</em>
+        </h2>
+
+        <p>
+          Selección especial con precios exclusivos
+          por tiempo limitado.
+        </p>
+
+        <a href="#productos" class="btn btn-gold" data-category-link="ofertas">
+          Ver ofertas
+          <span>→</span>
+        </a>
+
+      </div>
+
+      <div class="offer-orbit reveal">
+
+        <div class="offer-circle">
+          LUXE
+          <br>
+          <small>SALE</small>
+        </div>
+
+        <span>-25%</span>
+
+      </div>
+
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter section" id="contacto">
+
+      <form id="newsletterForm"></form>
+
+      <div class="newsletter-message" id="newsletterMessage"></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-main">
+
+      <div>
+
+        <a class="logo" href="#inicio">
+          LARØMA ESSENZÉ<span>.</span>
+        </a>
+
+        <p>
+          Tu estilo, tu esencia.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h4>Tienda</h4>
+
+        <a href="#productos" data-category-link="perfumes">
+          Perfumes
+        </a>
+
+        <a href="#productos" data-category-link="gorras">
+          Gorras
+        </a>
+
+        <a href="#productos" data-category-link="accesorios">
+          Accesorios
+        </a>
+
+        <a href="#productos" data-category-link="ofertas">
+          Ofertas
+        </a>
+
+      </div>
+
+      <div>
+
+        <h4>Ayuda</h4>
+        <a href="https://wa.me/91122704636?text=Hola!%20Quiero%20hacer%20una%20consulta%20sobre%20sus%20productos."
+          target="_blank" class="boton-contacto">
+          Contacto
+        </a>
+      </div>
+
+      <div>
+
+        <h4>Seguinos</h4>
+
+        <a href="https://www.instagram.com/laroma_essenze?stkn=OHI5Nzc1OHY0N2s1&utm_source=qr">Instagram</a>
+        <a href="https://www.tiktok.com/@larma_essenz">TikTok</a>
+        <a href="https://whatsapp.com/channel/0029Vb8vSTm6LwHgR6ial92w">Whatsapp</a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 LARØMA ESSENZÉ. Todos los derechos reservados.
+      </span>
+
+      <span>
+        Hecho para destacar.
+      </span>
+
+    </div>
+
+  </footer>
+
+  <!-- CARRITO -->
+  <div class="cart-drawer" id="cartDrawer">
+
+    <div class="drawer-head">
+
+      <div>
+
+        <p class="eyebrow">
+          TU SELECCIÓN
+        </p>
+
+        <h3>
+          Carrito
+        </h3>
+
+      </div>
+
+      <button id="closeCart" type="button" aria-label="Cerrar carrito">
+        ×
+      </button>
+
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+
+      <div>
+
+        <span>Total</span>
+
+        <strong id="cartTotal">
+          $0
+        </strong>
+
+      </div>
+
+      <button class="btn btn-gold checkout-btn" id="checkoutBtn" type="button">
+        Finalizar compra
+      </button>
+
+      <small>
+        Demo: no se procesa ningún pago real.
+      </small>
+
+    </div>
+
+  </div>
+
+  <!-- MODAL PRODUCTO -->
+  <div class="product-modal" id="productModal">
+
+    <div class="modal-card">
+
+      <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar producto">
+        ×
+      </button>
+
+      <div class="modal-image" id="modalImage"></div>
+
+      <div class="modal-info">
+
+        <p class="eyebrow" id="modalCategory"></p>
+
+        <h2 id="modalName"></h2>
+
+        <p id="modalDescription"></p>
+
+        <strong id="modalPrice"></strong>
+
+        <button class="btn btn-gold" id="modalAdd" type="button">
+          Agregar al carrito →
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- NOTIFICACIÓN -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
