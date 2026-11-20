@@ -696,56 +696,16 @@ $("#newsletterForm")
         }
     );
 /* =========================
-   CHECKOUT: REGISTRAR PEDIDO + WHATSAPP
+   CHECKOUT: REGISTRAR PEDIDO EN SQLITE
 ========================= */
 $("#checkoutBtn").onclick = async () => {
     if (!cart.length) {
         toast("Tu carrito está vacío");
         return;
     }
-
     const cliente = prompt("Nombre y apellido para registrar el pedido:");
     if (!cliente || !cliente.trim()) return;
-
     const telefono = prompt("Teléfono de contacto:") || "";
-
-    // Abrimos la pestaña durante el clic para evitar que el navegador
-    // bloquee WhatsApp cuando termine la petición al servidor.
-    const whatsappTab = window.open("about:blank", "_blank");
-
-    if (!whatsappTab) {
-        toast("Permití las ventanas emergentes para abrir WhatsApp.");
-        return;
-    }
-
-    // Preparamos el detalle del pedido usando los productos cargados en la tienda.
-    let mensaje = "Hola! 👋 Quiero hacer este pedido:\n\n";
-    let total = 0;
-
-    mensaje += `Nombre: ${cliente.trim()}\n`;
-    if (telefono.trim()) mensaje += `Teléfono: ${telefono.trim()}\n`;
-    mensaje += "\n";
-
-    cart.forEach(item => {
-        const product = products.find(
-            product => String(product.id) === String(item.id)
-        );
-
-        if (!product) return;
-
-        const subtotal = Number(product.price) * Number(item.qty);
-        total += subtotal;
-
-        mensaje += `🧴 ${product.name}\n`;
-        mensaje += `Cantidad: ${item.qty}\n`;
-        mensaje += `Precio: ${money(Number(product.price))}\n`;
-        mensaje += `Subtotal: ${money(subtotal)}\n\n`;
-    });
-
-    mensaje += `💰 TOTAL: ${money(total)}\n\n`;
-    mensaje += "Quiero realizar la compra. ¿Cómo seguimos?";
-
-    // Primero registramos el pedido en SQLite. El servidor valida precios y stock.
     try {
         const response = await fetch(`${API_BASE}/api/compras`, {
             method: "POST",
@@ -753,33 +713,18 @@ $("#checkoutBtn").onclick = async () => {
             body: JSON.stringify({
                 cliente: cliente.trim(),
                 telefono: telefono.trim(),
-                items: cart.map(item => ({
-                    producto_id: Number(item.id),
-                    cantidad: Number(item.qty)
-                }))
+                items: cart.map(item => ({ producto_id: Number(item.id), cantidad: Number(item.qty) }))
             })
         });
-
         const result = await response.json();
-        if (!response.ok) {
-            throw new Error(result.error || "No se pudo registrar el pedido.");
-        }
-
-        // Agregamos el número de pedido para que puedas identificarlo.
-        mensaje = `Pedido #${result.id}\nEstado: Pendiente\n\n` + mensaje;
-
-        const numero = "5491122704636";
-        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-        whatsappTab.location.href = url;
-
+        if (!response.ok) throw new Error(result.error || "No se pudo registrar el pedido.");
         cart = [];
         saveCart();
         renderCart();
         updateCartCount();
-
-        toast(`Pedido #${result.id} registrado. Continuá por WhatsApp.`);
+        toast(`Pedido #${result.id} registrado como Pendiente`);
+        alert(`¡Pedido #${result.id} registrado! Estado: Pendiente. El administrador podrá actualizarlo desde /admin.`);
     } catch (error) {
-        whatsappTab.close();
         toast(error.message);
     }
 };
